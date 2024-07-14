@@ -2,8 +2,11 @@ package com.meli.middleend.dto;
 
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class Item {
     String id;
     String title;
