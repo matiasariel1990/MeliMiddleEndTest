@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.meli</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>Middleendmf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Test Middleend</name>
+	<name>Middleend - Matias Figueroa</name>
 	<description>Test Middleend Meli</description>
 	<url/>
 	<licenses>
@@ -40,6 +40,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.34</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
