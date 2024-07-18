@@ -1,13 +1,13 @@
 package com.meli.middleend.dto;
 
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@NoArgsConstructor
 @Getter
 @Setter
 public class Item {
+
     String id;
     String title;
     Price price;
