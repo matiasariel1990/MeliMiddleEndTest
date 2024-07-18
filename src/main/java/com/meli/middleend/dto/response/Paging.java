@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class Paging {
-    int number;
+    int total;
     int offset;
     int limit;
     List<String> categories;

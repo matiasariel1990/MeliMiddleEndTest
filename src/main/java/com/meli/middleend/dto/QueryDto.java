@@ -1,16 +1,16 @@
 package com.meli.middleend.dto;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Builder
-public class Price {
-    String currency;
-    int amount;
-    int decimals;
-}
+public class QueryDto {
 
+    String query;
+    SortsEnum sortEnum;
+    int offset;
+    int limit;
+}
