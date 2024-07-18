@@ -10,6 +10,4 @@ public class Paging {
     int total;
     int offset;
     int limit;
-    List<String> categories;
-    List<Item> items;
 }
