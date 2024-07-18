@@ -7,12 +7,14 @@ import com.meli.middleend.dto.response.Paging;
 import com.meli.middleend.exception.ServiceException;
 import com.meli.middleend.service.ItemService;
 import com.meli.middleend.utils.MockConstants;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.meli.middleend.utils.MockConstants.*;
 
+@Service
 public class MockItemServiceImpl implements ItemService {
 
     @Override
