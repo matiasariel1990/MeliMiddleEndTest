@@ -51,7 +51,7 @@ public class MockItemServiceImpl implements ItemService {
         Set<String> categories = new HashSet<>();
         Paging paging = new Paging();
         if(MOCK_MAX_LIMIT < query.getLimit() + query.getOffset()){
-            throw new ServiceException();
+            throw new ServiceException("Limite Excedido");
         }
         paging.setTotal(MOCK_MAX_LIMIT);
         paging.setOffset(query.getOffset());

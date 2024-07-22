@@ -1,11 +1,8 @@
 package com.meli.middleend.controller;
 
 
-import com.meli.middleend.dto.ItemDeteail;
 import com.meli.middleend.dto.response.ItemResponse;
 import com.meli.middleend.dto.response.PageItemResponse;
-import com.meli.middleend.dto.response.Paging;
-import jakarta.websocket.server.PathParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
