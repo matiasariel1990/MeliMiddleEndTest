@@ -7,12 +7,14 @@ import com.meli.middleend.dto.response.Paging;
 import com.meli.middleend.exception.ServiceException;
 import com.meli.middleend.service.ItemService;
 import com.meli.middleend.utils.MockConstants;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.meli.middleend.utils.MockConstants.*;
 
+@Service
 public class MockItemServiceImpl implements ItemService {
 
     @Override
@@ -49,7 +51,7 @@ public class MockItemServiceImpl implements ItemService {
         Set<String> categories = new HashSet<>();
         Paging paging = new Paging();
         if(MOCK_MAX_LIMIT < query.getLimit() + query.getOffset()){
-            throw new ServiceException();
+            throw new ServiceException("Limite Excedido");
         }
         paging.setTotal(MOCK_MAX_LIMIT);
         paging.setOffset(query.getOffset());
