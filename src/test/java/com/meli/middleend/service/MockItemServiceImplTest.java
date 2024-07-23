@@ -7,13 +7,9 @@ import com.meli.middleend.dto.response.PageItemResponse;
 import com.meli.middleend.exception.ServiceException;
 import com.meli.middleend.service.impl.MockItemServiceImpl;
 import com.meli.middleend.utils.MockConstants;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
 
 public class MockItemServiceImplTest {
 
@@ -25,7 +21,7 @@ public class MockItemServiceImplTest {
 
         mockItemService = new MockItemServiceImpl();
 
-        ItemResponse itemResponse = mockItemService.getItemById(any());
+        ItemResponse itemResponse = mockItemService.getItemById(MockConstants.MOCK_ID_ITEM);
 
         //Item
         assertEquals(MockConstants.MOCK_ID_ITEM, itemResponse.getItem().getId());
