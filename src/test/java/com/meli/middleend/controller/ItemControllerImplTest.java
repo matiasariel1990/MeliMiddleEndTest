@@ -3,7 +3,6 @@ package com.meli.middleend.controller;
 
 import com.meli.middleend.controller.impl.ItemControllerImpl;
 import com.meli.middleend.dto.ItemDeteail;
-import com.meli.middleend.dto.response.ErrorResponse;
 import com.meli.middleend.dto.response.ItemResponse;
 import com.meli.middleend.exception.ServiceException;
 import com.meli.middleend.factory.FactoryItem;
