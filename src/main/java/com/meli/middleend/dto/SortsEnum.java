@@ -12,4 +12,5 @@ public enum SortsEnum {
 
     String id;
     String name;
+
 }

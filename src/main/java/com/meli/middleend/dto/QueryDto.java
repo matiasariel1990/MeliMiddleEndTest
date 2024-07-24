@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @Builder
 public class QueryDto {
-
+    SiteEnum siteEnum;
     String query;
     SortsEnum sortEnum;
     int offset;
