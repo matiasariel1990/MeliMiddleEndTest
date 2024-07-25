@@ -14,5 +14,6 @@ public class ItemResultSearch {
     private String category_id;
     private String currency_id;
     private BigDecimal price;
+    private String thumbnail;
     private Shipping shipping;
 }

@@ -18,7 +18,7 @@ public class ApiMLClientImpl implements ApiMLClient{
 
     private static final String QUERY_KEY = "q";
     private static final String OFFSET_KEY = "offset";
-    private static final String LIMIT_KEY = "offset";
+    private static final String LIMIT_KEY = "limit";
     private static final String SITE_KEY = "site";
 
     String URI = "https://api.mercadolibre.com/sites/{site}/search";

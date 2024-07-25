@@ -16,7 +16,6 @@ public class ItemControllerImpl implements ItemController {
 
     private static final int DEFAULT_OFFSET = 0;
 
-
     @Autowired
     ItemService itemService;
 
@@ -25,6 +24,7 @@ public class ItemControllerImpl implements ItemController {
 
     @Override
     public ResponseEntity<PageItemResponse> getItemBySite(String site, String query, int offset, int limit, String sortBy) {
+
         QueryDto queryDto = QueryDto.builder().build();
         queryDto.setSiteEnum(validatorService.validarSite(site));
         queryDto.setQuery(validatorService.validarQuery(query));

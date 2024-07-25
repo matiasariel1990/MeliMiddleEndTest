@@ -108,6 +108,13 @@ public class ValidatorServiceImplTest {
 
     }
 
+    @Test void ifIdIsBiggerThanLimitExpectAnExceptionTest(){
+        //max size 12
+        String idBigger = "213412431243123412341243123412341234123412341234";
+        assertThrows(ValidationException.class,() -> validatorService.validarId(idBigger));
+
+    }
+
     @Test void ifIdHaveAnInvalidCharacterExpectAnExceptionTest(){
         assertThrows(ValidationException.class,() -> validatorService.validarId("asdfa%"));
         assertThrows(ValidationException.class,() -> validatorService.validarId("as!"));

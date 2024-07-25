@@ -1,0 +1,134 @@
+{
+  "paging": {
+    "total": 701,
+    "offset": 0,
+    "limit": 10
+  },
+  "categories": [
+    "MLA121965",
+    "MLA455266",
+    "MLA455274"
+  ],
+  "items": [
+    {
+      "id": "MLA1750207194",
+      "title": "Joystick Ps5 Inalámbrico Sony Playstation 5 Dualsense Blanco",
+      "price": {
+        "currency": "ARS",
+        "amount": 204999,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_653979-MLU75209281062_032024-I.jpg",
+      "condition": "new",
+      "free_shipping": true
+    },
+    {
+      "id": "MLA1431139877",
+      "title": "Joystick Inalámbrico Dualsense Ps5 Original Galactic Purple",
+      "price": {
+        "currency": "ARS",
+        "amount": 194999,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_632956-MLA75054264527_032024-I.jpg",
+      "condition": "new",
+      "free_shipping": true
+    },
+    {
+      "id": "MLA1849707272",
+      "title": "Joystick Inalámbrico Dualshock 4 Ps4 Magma Red",
+      "price": {
+        "currency": "ARS",
+        "amount": 60599,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_675686-MLA75134564141_032024-I.jpg",
+      "condition": "new",
+      "free_shipping": true
+    },
+    {
+      "id": "MLA1425958341",
+      "title": "Joystick Inalámbrico Sony Playstation Dualsense Edge Blanco",
+      "price": {
+        "currency": "ARS",
+        "amount": 699999,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_803138-MLU72530047447_102023-I.jpg",
+      "condition": "new",
+      "free_shipping": true
+    },
+    {
+      "id": "MLA1750155618",
+      "title": "Joystick Inalámbrico Dualsense Ps5 Sterling Silver",
+      "price": {
+        "currency": "ARS",
+        "amount": 219999,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_745669-MLU74254046034_022024-I.jpg",
+      "condition": "new",
+      "free_shipping": true
+    },
+    {
+      "id": "MLA1750246486",
+      "title": "Joystick Inalámbrico Dualsense Ps5 Original Cosmic Red",
+      "price": {
+        "currency": "ARS",
+        "amount": 219999,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_780832-MLU75357934551_032024-I.jpg",
+      "condition": "new",
+      "free_shipping": true
+    },
+    {
+      "id": "MLA1425088191",
+      "title": "Playstation Cargador Dualsense 5",
+      "price": {
+        "currency": "ARS",
+        "amount": 149999,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_724958-MLU73480164872_122023-I.jpg",
+      "condition": "new",
+      "free_shipping": true
+    },
+    {
+      "id": "MLA1127921795",
+      "title": "Controle Sony Dualsense Ps5 Sem Fio - Starlight Blue Cfi-zct1j02 ",
+      "price": {
+        "currency": "ARS",
+        "amount": 169990,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_627590-MLU75357555361_032024-I.jpg",
+      "condition": "new",
+      "free_shipping": true
+    },
+    {
+      "id": "MLA1438328529",
+      "title": "Joystick Ps5 Inalámbrico Sony Playstation 5 Dualsense Grey C",
+      "price": {
+        "currency": "ARS",
+        "amount": 154999,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_783575-MLA77798171957_072024-I.jpg",
+      "condition": "new",
+      "free_shipping": true
+    },
+    {
+      "id": "MLA1617859848",
+      "title": "Base Soporte Cargador Doble 2 Joysticks Ps5 Play 5 Carga",
+      "price": {
+        "currency": "ARS",
+        "amount": 21577,
+        "decimals": 0
+      },
+      "picture": "http://http2.mlstatic.com/D_736377-MLU73587049403_122023-I.jpg",
+      "condition": "new",
+      "free_shipping": false
+    }
+  ]
+}

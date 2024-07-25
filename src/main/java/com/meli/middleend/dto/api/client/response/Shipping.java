@@ -6,5 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Shipping {
-    boolean freeShipping;
+    boolean free_shipping;
 }

@@ -69,10 +69,10 @@ public class MockItemServiceImpl implements ItemService {
         if(query.getSortEnum() != null){
             if(SortsEnum.PRICE_ASC.equals(query.getSortEnum())){
                 items= items.stream().sorted(
-                        Comparator.comparingInt(a -> a.getPrice().getAmount())).collect(Collectors.toList());
+                        Comparator.comparingLong(a -> a.getPrice().getAmount())).collect(Collectors.toList());
             }else{
                 items= items.stream().sorted(
-                        Comparator.comparingInt(a -> a.getPrice().getAmount())).collect(Collectors.toList());
+                        Comparator.comparingLong(a -> a.getPrice().getAmount())).collect(Collectors.toList());
                 Collections.reverse(items);
             }
 
