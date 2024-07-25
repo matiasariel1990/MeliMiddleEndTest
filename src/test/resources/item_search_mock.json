@@ -1,0 +1,12 @@
+{
+  "id": "12345",
+  "title": "Meli Product",
+  "condition": "New",
+  "category_id": "electronics",
+  "currency_id": "ARS",
+  "price": "2929.99",
+  "thumbnail": "http://meli.com/image.jpg",
+  "shipping": {
+    "free_shipping": true
+  }
+}

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Builder
 public class Price {
     String currency;
-    int amount;
+    long amount;
     int decimals;
 }
 
