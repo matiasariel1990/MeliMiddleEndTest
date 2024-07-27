@@ -1,7 +1,7 @@
 package com.meli.middleend.service;
 
-import com.meli.middleend.dto.SiteEnum;
-import com.meli.middleend.dto.SortsEnum;
+import com.meli.middleend.dto.enums.SiteEnum;
+import com.meli.middleend.dto.enums.SortsEnum;
 import com.meli.middleend.exception.ValidationException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,7 @@
 package com.meli.middleend.service.impl;
 
-import com.meli.middleend.dto.QueryDto;
-import com.meli.middleend.dto.SiteEnum;
-import com.meli.middleend.dto.SortsEnum;
+import com.meli.middleend.dto.enums.SiteEnum;
+import com.meli.middleend.dto.enums.SortsEnum;
 import com.meli.middleend.exception.ValidationException;
 import com.meli.middleend.service.ValidatorService;
 import org.springframework.beans.factory.annotation.Value;

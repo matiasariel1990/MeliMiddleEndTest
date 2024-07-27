@@ -4,11 +4,12 @@ import com.google.gson.Gson;
 import com.meli.middleend.dto.*;
 import com.meli.middleend.dto.api.client.SearByQueryDto;
 import com.meli.middleend.dto.api.client.response.ItemResultSearch;
+import com.meli.middleend.dto.enums.SiteEnum;
+import com.meli.middleend.dto.enums.SortsEnum;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 

@@ -1,8 +1,7 @@
 package com.meli.middleend.service;
 
-import com.meli.middleend.dto.QueryDto;
-import com.meli.middleend.dto.SiteEnum;
-import com.meli.middleend.dto.SortsEnum;
+import com.meli.middleend.dto.enums.SiteEnum;
+import com.meli.middleend.dto.enums.SortsEnum;
 
 public interface ValidatorService {
 
