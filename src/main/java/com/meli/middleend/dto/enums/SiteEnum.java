@@ -1,4 +1,4 @@
-package com.meli.middleend.dto;
+package com.meli.middleend.dto.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

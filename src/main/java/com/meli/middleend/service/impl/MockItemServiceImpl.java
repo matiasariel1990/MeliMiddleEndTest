@@ -1,12 +1,14 @@
 package com.meli.middleend.service.impl;
 
 import com.meli.middleend.dto.*;
+import com.meli.middleend.dto.enums.SortsEnum;
 import com.meli.middleend.dto.response.ItemResponse;
 import com.meli.middleend.dto.response.PageItemResponse;
 import com.meli.middleend.dto.response.Paging;
 import com.meli.middleend.exception.ServiceException;
 import com.meli.middleend.service.ItemService;
 import com.meli.middleend.utils.MockConstants;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -15,6 +17,7 @@ import java.util.stream.Collectors;
 import static com.meli.middleend.utils.MockConstants.*;
 
 @Service
+@Qualifier("MockItemServiceImpl")
 public class MockItemServiceImpl implements ItemService {
 
     @Override

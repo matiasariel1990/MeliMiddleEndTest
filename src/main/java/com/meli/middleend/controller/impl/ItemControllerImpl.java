@@ -4,9 +4,12 @@ import com.meli.middleend.controller.ItemController;
 import com.meli.middleend.dto.QueryDto;
 import com.meli.middleend.dto.response.ItemResponse;
 import com.meli.middleend.dto.response.PageItemResponse;
+import com.meli.middleend.exception.AuthException;
 import com.meli.middleend.service.ItemService;
 import com.meli.middleend.service.ValidatorService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +20,7 @@ public class ItemControllerImpl implements ItemController {
     private static final int DEFAULT_OFFSET = 0;
 
     @Autowired
+    @Qualifier("StrategyServiceImpl")
     ItemService itemService;
 
     @Autowired

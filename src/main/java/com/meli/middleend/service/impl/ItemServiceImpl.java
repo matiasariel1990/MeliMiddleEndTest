@@ -10,6 +10,7 @@ import com.meli.middleend.dto.response.PageItemResponse;
 import com.meli.middleend.service.ItemService;
 import com.meli.middleend.utils.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import java.util.HashSet;
 import java.util.List;
 
 @Service
+@Qualifier("ItemServiceImpl")
 public class ItemServiceImpl implements ItemService {
 
     @Autowired

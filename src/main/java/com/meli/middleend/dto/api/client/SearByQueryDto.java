@@ -1,10 +1,8 @@
 package com.meli.middleend.dto.api.client;
 
-import com.meli.middleend.dto.SortsEnum;
+import com.meli.middleend.dto.enums.SortsEnum;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Map;
 
 @Getter
 @Setter
