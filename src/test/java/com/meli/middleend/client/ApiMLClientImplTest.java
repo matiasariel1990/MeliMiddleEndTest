@@ -25,8 +25,7 @@ import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 
 @SpringBootTest
@@ -204,7 +203,7 @@ public class ApiMLClientImplTest {
         assertEquals(CONDITION_MOCK, itemByIdResponse.getCondition());
         assertEquals(PRICE_MOCK, itemByIdResponse.getPrice());
         assertEquals(TITLE_MOCK, itemByIdResponse.getTitle());
-        assertEquals(false, itemByIdResponse.getShipping().isFree_shipping());
+        assertFalse(itemByIdResponse.getShipping().isFree_shipping());
     }
 
 
