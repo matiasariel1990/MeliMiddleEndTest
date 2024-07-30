@@ -9,5 +9,6 @@ import java.util.List;
 @Setter
 public class ItemByIdResponse extends ItemResultSearch{
     List<Picture> pictures;
+    String seller_id;
     int initial_quantity;
 }

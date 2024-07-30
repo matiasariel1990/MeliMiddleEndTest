@@ -1,6 +1,7 @@
 package com.meli.middleend.service.impl;
 
 import com.meli.middleend.client.ApiMLClient;
+import com.meli.middleend.dto.Author;
 import com.meli.middleend.dto.Item;
 import com.meli.middleend.dto.ItemDeteail;
 import com.meli.middleend.dto.QueryDto;
@@ -16,8 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -26,6 +25,7 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
 
     private static final String NO_DESCRIPTION = "No se pudo obtener la descripcion.";
+    private static final String NO_AVAILABLE_DATA = "Data not available.";
 
     @Autowired
     ApiMLClient apiMLClient;
@@ -40,7 +40,10 @@ public class ItemServiceImpl implements ItemService {
         }catch (Exception e){
             itemDeteail.setDescription(NO_DESCRIPTION);
         }
-        ItemResponse itemResponse = ItemResponse.builder().author(null)
+        Author author = Author.builder()
+                .name(itemByIdResponse.getSeller_id())
+                .lastName(NO_AVAILABLE_DATA).build();
+        ItemResponse itemResponse = ItemResponse.builder().author(author)
                 .item(itemDeteail).build();
         return itemResponse;
     }
