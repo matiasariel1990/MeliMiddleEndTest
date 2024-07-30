@@ -3,6 +3,7 @@ package com.meli.middleend.filters;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.meli.middleend.dto.LogElementDto;
+import com.meli.middleend.dto.enums.TipoLogEnum;
 import com.meli.middleend.service.LoggingService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -38,6 +39,7 @@ public class LoggingFilter implements Filter {
         ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(httpRequest);
         ContentCachingResponseWrapper wrappedResponse = new ContentCachingResponseWrapper((HttpServletResponse) response);
         LogElementDto logElementDto = new LogElementDto();
+        logElementDto.setTipoLog(TipoLogEnum.LOG_APP);
         logElementDto.setRequestId(UUID.randomUUID().toString());
 
         try{

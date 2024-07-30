@@ -1,5 +1,7 @@
 package com.meli.middleend.config;
 
+import com.meli.middleend.interceptor.LoggingInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -16,11 +18,15 @@ public class AppConfig {
     @Value("${spring.security.usermock.token}")
     private String usermocktoken;
 
+    @Autowired
+    LoggingInterceptor loggingInterceptor;
+
 
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder){
-        return restTemplateBuilder.interceptors().build();
+        return restTemplateBuilder.interceptors(loggingInterceptor).build();
     }
+
 
 
 

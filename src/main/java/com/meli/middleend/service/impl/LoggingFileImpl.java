@@ -1,6 +1,9 @@
 package com.meli.middleend.service.impl;
 
 import com.meli.middleend.dto.LogElementDto;
+import com.meli.middleend.dto.enums.TipoLogEnum;
+import com.meli.middleend.filters.LoggingFilter;
+import com.meli.middleend.interceptor.LoggingInterceptor;
 import com.meli.middleend.service.LoggingService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,10 +14,19 @@ import java.text.MessageFormat;
 @Service
 public class LoggingFileImpl implements LoggingService {
 
-    private static final Logger logger = LogManager.getLogger(LoggingFileImpl.class);
-
+    private static final Logger loggerApp = LogManager.getLogger(LoggingFilter.class);
+    private static final Logger loggerBack = LogManager.getLogger(LoggingInterceptor.class);
     @Override
     public void logElement(LogElementDto logDto) {
+
+        Logger logger = null;
+
+        if(logDto.getTipoLog().equals(TipoLogEnum.LOG_APP)){
+            logger = loggerApp;
+        }
+        if(logDto.getTipoLog().equals(TipoLogEnum.LOG_BACK_APP)){
+            logger = loggerBack;
+        }
 
         String requestLog =
                 MessageFormat.format("\nLog Request {0}: \n" +
@@ -31,9 +43,9 @@ public class LoggingFileImpl implements LoggingService {
                                 "Response Code: {2} \n" +
                                 "Headers : {3} \n" +
                                 "Body: {4} \n" +
-                        "Response time: 0 \n", logDto.getRequestId(),
+                        "Response time: {5} ms\n", logDto.getRequestId(),
                         logDto.getFechaHoraResponse(), logDto.getResultCode(), logDto.getResponseHeaders(),
-                        logDto.getResponseBody());
+                        logDto.getResponseBody(), logDto.getTimeDif());
 
         String logResult = requestLog.concat(responseLog);
 
