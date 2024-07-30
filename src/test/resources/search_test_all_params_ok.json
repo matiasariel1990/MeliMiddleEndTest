@@ -1,0 +1,397 @@
+{
+  "site_id": "MLB",
+  "country_default_time_zone": "GMT-03:00",
+  "query": ":sites/MLB/search?q=tele",
+  "paging": {
+    "total": 4,
+    "primary_results": 4,
+    "offset": 3,
+    "limit": 5
+  },
+  "results": [
+    {
+      "id": "MLB4614638874",
+      "title": "Esquema Datasheet Search Site (2)",
+      "condition": "new",
+      "thumbnail_id": "855224-MLB75708132444_042024",
+      "catalog_product_id": null,
+      "listing_type_id": "gold_special",
+      "sanitized_title": "esquema-datasheet-search-site-2",
+      "permalink": "https://produto.mercadolivre.com.br/MLB-4614638874-esquema-datasheet-search-site-2-_JM",
+      "buying_mode": "buy_it_now",
+      "site_id": "MLB",
+      "category_id": "MLB455832",
+      "domain_id": "MLB-COMPUTER_EQUIPMENT_AND_REPLACEMENTS",
+      "thumbnail": "http://http2.mlstatic.com/D_855224-MLB75708132444_042024-I.jpg",
+      "currency_id": "BRL",
+      "order_backend": 1,
+      "price": 13.94,
+      "original_price": null,
+      "sale_price": null,
+      "available_quantity": 500,
+      "official_store_id": null,
+      "use_thumbnail_id": true,
+      "accepts_mercadopago": true,
+      "shipping": {
+        "store_pick_up": false,
+        "free_shipping": false,
+        "logistic_type": "not_specified",
+        "mode": "not_specified",
+        "tags": [
+        ],
+        "benefits": null,
+        "promise": null,
+        "shipping_score": -1
+      },
+      "stop_time": "2044-04-13T04:00:00.000Z",
+      "seller": {
+        "id": 836972532,
+        "nickname": "PAUN8396661"
+      },
+      "attributes": [
+        {
+          "id": "BRAND",
+          "name": "Marca da peça de reposição",
+          "value_id": "276243",
+          "value_name": "Genérica",
+          "attribute_group_id": "OTHERS",
+          "attribute_group_name": "Outros",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "276243",
+              "name": "Genérica",
+              "struct": null,
+              "source": 4954751883138633
+            }
+          ],
+          "source": 4954751883138633,
+          "value_type": "string"
+        },
+        {
+          "id": "ITEM_CONDITION",
+          "name": "Condição do item",
+          "value_id": "2230284",
+          "value_name": "Novo",
+          "attribute_group_id": "OTHERS",
+          "attribute_group_name": "Outros",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "2230284",
+              "name": "Novo",
+              "struct": null,
+              "source": 4954751883138633
+            }
+          ],
+          "source": 4954751883138633,
+          "value_type": "list"
+        },
+        {
+          "id": "MODEL",
+          "name": "Modelo da peça de reposição",
+          "value_id": null,
+          "value_name": "Esquema DATASHEET SEARCH SITE (2)",
+          "attribute_group_id": "OTHERS",
+          "attribute_group_name": "Outros",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "Esquema DATASHEET SEARCH SITE (2)",
+              "struct": null,
+              "source": 4954751883138633
+            }
+          ],
+          "source": 4954751883138633,
+          "value_type": "string"
+        }
+      ],
+      "installments": null,
+      "winner_item_id": null,
+      "catalog_listing": false,
+      "discounts": null,
+      "promotions": [
+      ],
+      "inventory_id": null
+    }
+  ],
+  "sort": {
+    "id": "price_desc",
+    "name": "Maior preço"
+  },
+  "available_sorts": [
+    {
+      "id": "relevance",
+      "name": "Mais relevantes"
+    },
+    {
+      "id": "price_asc",
+      "name": "Menor preço"
+    }
+  ],
+  "filters": [
+  ],
+  "available_filters": [
+    {
+      "id": "category",
+      "name": "Categorias",
+      "type": "text",
+      "values": [
+        {
+          "id": "MLB430687",
+          "name": "Portáteis e Acessórios",
+          "results": 2
+        },
+        {
+          "id": "MLB1580",
+          "name": "Fornos e Fogões",
+          "results": 1
+        },
+        {
+          "id": "MLB118017",
+          "name": "Relógios",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "official_store",
+      "name": "Lojas oficiais",
+      "type": "text",
+      "values": [
+        {
+          "id": "all",
+          "name": "Todas as lojas oficiais",
+          "results": 1
+        },
+        {
+          "id": "2133",
+          "name": "Dako",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "discount",
+      "name": "Descontos",
+      "type": "number",
+      "values": [
+        {
+          "id": "10-100",
+          "name": "Mais de 10% OFF",
+          "results": 2
+        },
+        {
+          "id": "20-100",
+          "name": "Mais de 20% OFF",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "price",
+      "name": "Preço",
+      "type": "range",
+      "values": [
+        {
+          "id": "*-1500.0",
+          "name": "Até R$ 1.500",
+          "results": 3
+        },
+        {
+          "id": "1500.0-*",
+          "name": "Mais de R$1.500",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "accepts_mercadopago",
+      "name": "Filtro por MercadoPago",
+      "type": "boolean",
+      "values": [
+        {
+          "id": "yes",
+          "name": "Com Mercado Pago",
+          "results": 4
+        }
+      ]
+    },
+    {
+      "id": "installments",
+      "name": "Pagamento",
+      "type": "text",
+      "values": [
+        {
+          "id": "yes",
+          "name": "Parcelamento sem juros",
+          "results": 4
+        },
+        {
+          "id": "no_interest",
+          "name": "Sem juros",
+          "results": 2
+        }
+      ]
+    },
+    {
+      "id": "shipping",
+      "name": "Tipo de envio",
+      "type": "text",
+      "values": [
+        {
+          "id": "mercadoenvios",
+          "name": "Mercado Envios",
+          "results": 2
+        }
+      ]
+    },
+    {
+      "id": "power_seller",
+      "name": "Filtro MercadoLíderes",
+      "type": "boolean",
+      "values": [
+        {
+          "id": "yes",
+          "name": "Melhores vendedores",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "has_video",
+      "name": "Filtro por publicações com vídeo",
+      "type": "boolean",
+      "values": [
+        {
+          "id": "yes",
+          "name": "Publicações com vídeo",
+          "results": 3
+        }
+      ]
+    },
+    {
+      "id": "has_pictures",
+      "name": "Filtro por publicação com imagens",
+      "type": "boolean",
+      "values": [
+        {
+          "id": "yes",
+          "name": "Com fotos",
+          "results": 4
+        }
+      ]
+    },
+    {
+      "id": "all_payment_methods_discount",
+      "name": "Descuentos para todos los medios de pago",
+      "type": "number",
+      "values": [
+        {
+          "id": "20-100",
+          "name": "Mais de 20% OFF",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "price_campaign_id",
+      "name": "Campanha",
+      "type": "number",
+      "values": [
+        {
+          "id": "P-MLB14111628",
+          "name": "P-MLB14111628",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "shipping_cost",
+      "name": "Custo do frete",
+      "type": "text",
+      "values": [
+        {
+          "id": "free",
+          "name": "Grátis",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "BRAND",
+      "name": "Marca",
+      "type": "STRING",
+      "values": [
+        {
+          "id": "41777",
+          "name": "Dako",
+          "results": 1
+        },
+        {
+          "id": "276243",
+          "name": "Genérica",
+          "results": 1
+        },
+        {
+          "id": "18360293",
+          "name": "Jiuling",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "ITEM_CONDITION",
+      "name": "Condição",
+      "type": "STRING",
+      "values": [
+        {
+          "id": "2230284",
+          "name": "Novo",
+          "results": 4
+        }
+      ]
+    },
+    {
+      "id": "SHIPPING_ORIGIN",
+      "name": "Tipo de compra",
+      "type": "STRING",
+      "values": [
+        {
+          "id": "10215068",
+          "name": "Local",
+          "results": 3
+        },
+        {
+          "id": "10215069",
+          "name": "Internacional",
+          "results": 1
+        }
+      ]
+    },
+    {
+      "id": "state",
+      "name": "Localização",
+      "type": "text",
+      "values": [
+        {
+          "id": "TUxCUFNBT085N2E4",
+          "name": "São Paulo",
+          "results": 2
+        },
+        {
+          "id": "TUxCUFBBUkExODBlZA",
+          "name": "Paraná",
+          "results": 1
+        }
+      ]
+    }
+  ],
+  "pdp_tracking": {
+    "group": false,
+    "product_info": [
+    ]
+  },
+  "user_context": null
+}

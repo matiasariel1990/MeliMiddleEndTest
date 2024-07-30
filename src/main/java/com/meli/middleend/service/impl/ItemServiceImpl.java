@@ -2,8 +2,11 @@ package com.meli.middleend.service.impl;
 
 import com.meli.middleend.client.ApiMLClient;
 import com.meli.middleend.dto.Item;
+import com.meli.middleend.dto.ItemDeteail;
 import com.meli.middleend.dto.QueryDto;
 import com.meli.middleend.dto.api.client.SearByQueryDto;
+import com.meli.middleend.dto.api.client.response.ItemByIdResponse;
+import com.meli.middleend.dto.api.client.response.ItemDescription;
 import com.meli.middleend.dto.api.client.response.SearchResponse;
 import com.meli.middleend.dto.response.ItemResponse;
 import com.meli.middleend.dto.response.PageItemResponse;
@@ -22,14 +25,24 @@ import java.util.List;
 @Qualifier("ItemServiceImpl")
 public class ItemServiceImpl implements ItemService {
 
+    private static final String NO_DESCRIPTION = "No se pudo obtener la descripcion.";
+
     @Autowired
     ApiMLClient apiMLClient;
 
     @Override
     public ItemResponse getItemById(String id) {
-
-
-        return null;
+        ItemByIdResponse itemByIdResponse = apiMLClient.getItemById(id);
+        ItemDeteail itemDeteail = Mapper.mapToItemResponse(itemByIdResponse);
+        try{
+            ItemDescription itemDescription = apiMLClient.getItemDescription(id);
+            itemDeteail.setDescription(itemDescription.getPlain_text());
+        }catch (Exception e){
+            itemDeteail.setDescription(NO_DESCRIPTION);
+        }
+        ItemResponse itemResponse = ItemResponse.builder().author(null)
+                .item(itemDeteail).build();
+        return itemResponse;
     }
 
     @Override

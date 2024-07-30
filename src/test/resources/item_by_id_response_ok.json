@@ -1,0 +1,634 @@
+{
+  "id": "id",
+  "site_id": "MLA",
+  "title": "El Lobo Que Queria Cambiar De Color, De Lallemand, Orianne. Editorial Los Editores De Auzou, Tapa Dura En Español, 2019",
+  "seller_id": 3723753,
+  "category_id": "MLA412445",
+  "official_store_id": null,
+  "price": 19590.2,
+  "base_price": 19590.2,
+  "original_price": null,
+  "currency_id": "ARS",
+  "initial_quantity": 11,
+  "sale_terms": [
+    {
+      "id": "WARRANTY_TYPE",
+      "name": "Tipo de garantía",
+      "value_id": "2230280",
+      "value_name": "Garantía del vendedor",
+      "value_struct": null,
+      "values": [
+        {
+          "id": "2230280",
+          "name": "Garantía del vendedor",
+          "struct": null
+        }
+      ],
+      "value_type": "list"
+    },
+    {
+      "id": "WARRANTY_TIME",
+      "name": "Tiempo de garantía",
+      "value_id": null,
+      "value_name": "7 días",
+      "value_struct": {
+        "number": 7,
+        "unit": "días"
+      },
+      "values": [
+        {
+          "id": null,
+          "name": "7 días",
+          "struct": {
+            "number": 7,
+            "unit": "días"
+          }
+        }
+      ],
+      "value_type": "number_unit"
+    }
+  ],
+  "buying_mode": "buy_it_now",
+  "listing_type_id": "gold_pro",
+  "condition": "new",
+  "permalink": "https://articulo.mercadolibre.com.ar/MLA-1381803045-el-lobo-que-queria-cambiar-de-color-de-lallemand-orianne-editorial-los-editores-de-auzou-tapa-dura-en-espanol-2019-_JM",
+  "thumbnail_id": "671373-MLA69873295286_062023",
+  "thumbnail": "http://http2.mlstatic.com/D_671373-MLA69873295286_062023-I.jpg",
+  "pictures": [
+    {
+      "id": "671373-MLA69873295286_062023",
+      "url": "http://http2.mlstatic.com/D_671373-MLA69873295286_062023-O.jpg",
+      "secure_url": "https://http2.mlstatic.com/D_671373-MLA69873295286_062023-O.jpg",
+      "size": "500x487",
+      "max_size": "1200x1171",
+      "quality": ""
+    },
+    {
+      "id": "662514-MLA52770826556_122022",
+      "url": "http://http2.mlstatic.com/D_662514-MLA52770826556_122022-O.jpg",
+      "secure_url": "https://http2.mlstatic.com/D_662514-MLA52770826556_122022-O.jpg",
+      "size": "500x500",
+      "max_size": "960x960",
+      "quality": ""
+    }
+  ],
+  "video_id": null,
+  "descriptions": [
+  ],
+  "accepts_mercadopago": true,
+  "non_mercado_pago_payment_methods": [
+  ],
+  "shipping": {
+    "mode": "me2",
+    "methods": [
+    ],
+    "tags": [
+      "MLA-CHG-threshold-ene-24",
+      "MLA-CHG-threshold-nov-23",
+      "self_service_in"
+    ],
+    "dimensions": null,
+    "local_pick_up": true,
+    "free_shipping": false,
+    "logistic_type": "xd_drop_off",
+    "store_pick_up": false
+  },
+  "international_delivery_mode": "none",
+  "seller_address": {
+    "city": {
+      "id": "TUxBQkJBUjM0MDha",
+      "name": "Barracas"
+    },
+    "state": {
+      "id": "AR-C",
+      "name": "Capital Federal"
+    },
+    "country": {
+      "id": "AR",
+      "name": "Argentina"
+    },
+    "search_location": {
+      "neighborhood": {
+        "id": "TUxBQkJBUjM0MDha",
+        "name": "Barracas"
+      },
+      "city": {
+        "id": "TUxBQ0NBUGZlZG1sYQ",
+        "name": "Capital Federal"
+      },
+      "state": {
+        "id": "TUxBUENBUGw3M2E1",
+        "name": "Capital Federal"
+      }
+    },
+    "id": 133882634
+  },
+  "seller_contact": null,
+  "location": {
+  },
+  "coverage_areas": [
+  ],
+  "attributes": [
+    {
+      "id": "ACCESSORIES_INCLUDED",
+      "name": "Accesorios incluidos",
+      "value_id": "13393683",
+      "value_name": "No aplica",
+      "values": [
+        {
+          "id": "13393683",
+          "name": "No aplica",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "AUTHOR",
+      "name": "Autor",
+      "value_id": "15932499",
+      "value_name": "Lallemand, Orianne",
+      "values": [
+        {
+          "id": "15932499",
+          "name": "Lallemand, Orianne",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOKS_NUMBER_PER_SET",
+      "name": "Cantidad de libros por set",
+      "value_id": null,
+      "value_name": "1",
+      "values": [
+        {
+          "id": null,
+          "name": "1",
+          "struct": null
+        }
+      ],
+      "value_type": "number"
+    },
+    {
+      "id": "BOOK_COLLECTION",
+      "name": "Colección del libro",
+      "value_id": "25746356",
+      "value_name": "Lobo",
+      "values": [
+        {
+          "id": "25746356",
+          "name": "Lobo",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_COVER",
+      "name": "Tapa del libro",
+      "value_id": "2132701",
+      "value_name": "Dura",
+      "values": [
+        {
+          "id": "2132701",
+          "name": "Dura",
+          "struct": null
+        }
+      ],
+      "value_type": "list"
+    },
+    {
+      "id": "BOOK_COVER_MATERIAL",
+      "name": "Material de la tapa del libro",
+      "value_id": "13662247",
+      "value_name": "Carton",
+      "values": [
+        {
+          "id": "13662247",
+          "name": "Carton",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_EDITION",
+      "name": "Edición del libro",
+      "value_id": "-1",
+      "value_name": null,
+      "values": [
+        {
+          "id": "-1",
+          "name": null,
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_GENRE",
+      "name": "Género del libro",
+      "value_id": "7538039",
+      "value_name": "Literatura y ficción",
+      "values": [
+        {
+          "id": "7538039",
+          "name": "Literatura y ficción",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_PUBLISHER",
+      "name": "Editorial del libro",
+      "value_id": "15932500",
+      "value_name": "Los Editores De Auzou",
+      "values": [
+        {
+          "id": "15932500",
+          "name": "Los Editores De Auzou",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_SERIE",
+      "name": "Serie",
+      "value_id": "-1",
+      "value_name": null,
+      "values": [
+        {
+          "id": "-1",
+          "name": null,
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_SIZE",
+      "name": "Tamaño del libro",
+      "value_id": "11997285",
+      "value_name": "Mediano",
+      "values": [
+        {
+          "id": "11997285",
+          "name": "Mediano",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_SUBGENRES",
+      "name": "Subgéneros del libro",
+      "value_id": "19942574",
+      "value_name": "Cuentos",
+      "values": [
+        {
+          "id": "19942574",
+          "name": "Cuentos",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_SUBTITLE",
+      "name": "Subtítulo del libro",
+      "value_id": "-1",
+      "value_name": null,
+      "values": [
+        {
+          "id": "-1",
+          "name": null,
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_TITLE",
+      "name": "Título del libro",
+      "value_id": "15932501",
+      "value_name": "El Lobo Que Queria Cambiar De Color",
+      "values": [
+        {
+          "id": "15932501",
+          "name": "El Lobo Que Queria Cambiar De Color",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_VERSION",
+      "name": "Versión del libro",
+      "value_id": "-1",
+      "value_name": null,
+      "values": [
+        {
+          "id": "-1",
+          "name": null,
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "BOOK_VOLUME",
+      "name": "Volumen del libro",
+      "value_id": "-1",
+      "value_name": null,
+      "values": [
+        {
+          "id": "-1",
+          "name": null,
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "CO_AUTHORS",
+      "name": "Coautores",
+      "value_id": "-1",
+      "value_name": null,
+      "values": [
+        {
+          "id": "-1",
+          "name": null,
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "GTIN",
+      "name": "ISBN",
+      "value_id": null,
+      "value_name": "9782733873496",
+      "values": [
+        {
+          "id": null,
+          "name": "9782733873496",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "HEIGHT",
+      "name": "Altura",
+      "value_id": "7816568",
+      "value_name": "25 cm",
+      "values": [
+        {
+          "id": "7816568",
+          "name": "25 cm",
+          "struct": {
+            "number": 25,
+            "unit": "cm"
+          }
+        }
+      ],
+      "value_type": "number_unit"
+    },
+    {
+      "id": "IS_WRITTEN_IN_CAPITAL_LETTERS",
+      "name": "Escrito en imprenta mayúscula",
+      "value_id": "242084",
+      "value_name": "No",
+      "values": [
+        {
+          "id": "242084",
+          "name": "No",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "ITEM_CONDITION",
+      "name": "Condición del ítem",
+      "value_id": "2230284",
+      "value_name": "Nuevo",
+      "values": [
+        {
+          "id": "2230284",
+          "name": "Nuevo",
+          "struct": null
+        }
+      ],
+      "value_type": "list"
+    },
+    {
+      "id": "LANGUAGE",
+      "name": "Idioma",
+      "value_id": "313886",
+      "value_name": "Español",
+      "values": [
+        {
+          "id": "313886",
+          "name": "Español",
+          "struct": null
+        }
+      ],
+      "value_type": "list"
+    },
+    {
+      "id": "MAX_RECOMMENDED_AGE",
+      "name": "Edad máxima recomendada",
+      "value_id": "7095685",
+      "value_name": "8 años",
+      "values": [
+        {
+          "id": "7095685",
+          "name": "8 años",
+          "struct": {
+            "number": 8,
+            "unit": "años"
+          }
+        }
+      ],
+      "value_type": "number_unit"
+    },
+    {
+      "id": "MIN_RECOMMENDED_AGE",
+      "name": "Edad mínima recomendada",
+      "value_id": "8870837",
+      "value_name": "6 años",
+      "values": [
+        {
+          "id": "8870837",
+          "name": "6 años",
+          "struct": {
+            "number": 6,
+            "unit": "años"
+          }
+        }
+      ],
+      "value_type": "number_unit"
+    },
+    {
+      "id": "NARRATION_TYPE",
+      "name": "Tipo de narración",
+      "value_id": "7488905",
+      "value_name": "Cuento",
+      "values": [
+        {
+          "id": "7488905",
+          "name": "Cuento",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "PAGES_NUMBER",
+      "name": "Cantidad de páginas",
+      "value_id": "12282119",
+      "value_name": "32",
+      "values": [
+        {
+          "id": "12282119",
+          "name": "32",
+          "struct": null
+        }
+      ],
+      "value_type": "number"
+    },
+    {
+      "id": "PUBLICATION_YEAR",
+      "name": "Año de publicación",
+      "value_id": "762734",
+      "value_name": "2019",
+      "values": [
+        {
+          "id": "762734",
+          "name": "2019",
+          "struct": null
+        }
+      ],
+      "value_type": "number"
+    },
+    {
+      "id": "TRANSLATORS",
+      "name": "Traductores",
+      "value_id": "-1",
+      "value_name": null,
+      "values": [
+        {
+          "id": "-1",
+          "name": null,
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "WEIGHT",
+      "name": "Peso",
+      "value_id": "8223940",
+      "value_name": "0.45 kg",
+      "values": [
+        {
+          "id": "8223940",
+          "name": "0.45 kg",
+          "struct": {
+            "number": 0.45,
+            "unit": "kg"
+          }
+        }
+      ],
+      "value_type": "number_unit"
+    },
+    {
+      "id": "WIDTH",
+      "name": "Ancho",
+      "value_id": "5760546",
+      "value_name": "25 cm",
+      "values": [
+        {
+          "id": "5760546",
+          "name": "25 cm",
+          "struct": {
+            "number": 25,
+            "unit": "cm"
+          }
+        }
+      ],
+      "value_type": "number_unit"
+    },
+    {
+      "id": "WITH_AUGMENTED_REALITY",
+      "name": "Con realidad aumentada",
+      "value_id": "242084",
+      "value_name": "No",
+      "values": [
+        {
+          "id": "242084",
+          "name": "No",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "WITH_COLORING_PAGES",
+      "name": "Con páginas para colorear",
+      "value_id": "242084",
+      "value_name": "No",
+      "values": [
+        {
+          "id": "242084",
+          "name": "No",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "WITH_INDEX",
+      "name": "Con índice",
+      "value_id": "-1",
+      "value_name": null,
+      "values": [
+        {
+          "id": "-1",
+          "name": null,
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    }
+  ],
+  "listing_source": "",
+  "variations": [
+  ],
+  "status": "active",
+  "sub_status": [
+  ],
+  "tags": [
+    "3x_campaign",
+    "mshops_3x_campaign",
+    "good_quality_thumbnail",
+    "immediate_payment",
+    "cart_eligible"
+  ],
+  "warranty": "Garantía del vendedor: 7 días",
+  "catalog_product_id": "MLA21243072",
+  "domain_id": "MLA-BOOKS",
+  "parent_item_id": null,
+  "deal_ids": [
+  ],
+  "automatic_relist": false,
+  "date_created": "2023-08-05T19:13:37.000Z",
+  "last_updated": "2024-07-24T16:58:48.000Z",
+  "health": null,
+  "catalog_listing": true
+}

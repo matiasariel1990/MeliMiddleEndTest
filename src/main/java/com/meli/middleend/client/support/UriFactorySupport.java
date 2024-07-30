@@ -14,8 +14,6 @@ public class UriFactorySupport {
                 uriBuilder.queryParam(entry.getKey(), entry.getValue());
             }
         }
-
-
         return uriBuilder.buildAndExpand(vars).toUriString();
     }
 

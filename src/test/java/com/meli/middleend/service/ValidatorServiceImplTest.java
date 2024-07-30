@@ -3,16 +3,28 @@ package com.meli.middleend.service;
 import com.meli.middleend.dto.enums.SiteEnum;
 import com.meli.middleend.dto.enums.SortsEnum;
 import com.meli.middleend.exception.ValidationException;
+import com.meli.middleend.service.impl.ValidatorServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.mock;
 
 @SpringBootTest
 public class ValidatorServiceImplTest {
+
+    @Configuration
+    static class TestConfig {
+        @Bean
+        public ValidatorService validatorService() {
+            return new ValidatorServiceImpl();
+        }
+    }
 
     @Autowired
     ValidatorService validatorService;

@@ -1,9 +1,11 @@
 package com.meli.middleend.utils;
 
 import com.meli.middleend.dto.Item;
+import com.meli.middleend.dto.ItemDeteail;
 import com.meli.middleend.dto.Price;
 import com.meli.middleend.dto.QueryDto;
 import com.meli.middleend.dto.api.client.SearByQueryDto;
+import com.meli.middleend.dto.api.client.response.ItemByIdResponse;
 import com.meli.middleend.dto.api.client.response.ItemResultSearch;
 import com.meli.middleend.dto.response.ItemResponse;
 
@@ -42,5 +44,16 @@ public class Mapper {
                 .amount(ammount.movePointRight(ammount.scale()).longValueExact())
                 .currency(currencyId)
                 .build();
+    }
+
+    public static ItemDeteail mapToItemResponse(ItemByIdResponse itemByIdResponse) {
+        ItemDeteail itemDeteail = new ItemDeteail();
+        itemDeteail.setId(itemByIdResponse.getId());
+        itemDeteail.setTitle(itemByIdResponse.getTitle());
+        itemDeteail.setPrice(mapToPrice(itemByIdResponse.getPrice(), itemByIdResponse.getCurrency_id()));
+        itemDeteail.setCondition(itemByIdResponse.getCondition());
+        itemDeteail.setSold_quantity(itemByIdResponse.getInitial_quantity());
+        itemDeteail.setPicture(itemByIdResponse.getPictures().get(0).getSecure_url());
+        return itemDeteail;
     }
 }
