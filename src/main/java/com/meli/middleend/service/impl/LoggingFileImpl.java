@@ -5,6 +5,7 @@ import com.meli.middleend.dto.enums.TipoLogEnum;
 import com.meli.middleend.filters.LoggingFilter;
 import com.meli.middleend.interceptor.LoggingInterceptor;
 import com.meli.middleend.service.LoggingService;
+import com.meli.middleend.utils.JsonFormatter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,7 @@ public class LoggingFileImpl implements LoggingService {
                         "Headers : {4}" +
                         "Body: {5} \n", logDto.getRequestId(),
                         logDto.getFechaHoraRequest(), logDto.getHttpVerb(), logDto.getEndpoint(),
-                        logDto.getRequestHeaders(), logDto.getRequestBody());
+                        logDto.getRequestHeaders(), JsonFormatter.formatJson(logDto.getRequestBody()));
 
         String responseLog =
                 MessageFormat.format("Log Response {0}: \n" +
@@ -45,7 +46,7 @@ public class LoggingFileImpl implements LoggingService {
                                 "Body: {4} \n" +
                         "Response time: {5} ms\n", logDto.getRequestId(),
                         logDto.getFechaHoraResponse(), logDto.getResultCode(), logDto.getResponseHeaders(),
-                        logDto.getResponseBody(), logDto.getTimeDif());
+                        JsonFormatter.formatJson(logDto.getResponseBody()), logDto.getTimeDif());
 
         String logResult = requestLog.concat(responseLog);
 
