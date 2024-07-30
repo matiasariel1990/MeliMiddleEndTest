@@ -33,7 +33,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public ItemResponse getItemById(String id) {
         ItemByIdResponse itemByIdResponse = apiMLClient.getItemById(id);
-        ItemDeteail itemDeteail = Mapper.mapToItemResponse(itemByIdResponse);
+        ItemDeteail itemDeteail = Mapper.mapToItemDetail(itemByIdResponse);
         try{
             ItemDescription itemDescription = apiMLClient.getItemDescription(id);
             itemDeteail.setDescription(itemDescription.getPlain_text());

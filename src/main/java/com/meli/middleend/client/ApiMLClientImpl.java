@@ -7,6 +7,7 @@ import com.meli.middleend.dto.api.client.response.ItemDescription;
 import com.meli.middleend.dto.api.client.response.ResponseApiError;
 import com.meli.middleend.dto.api.client.response.SearchResponse;
 import com.meli.middleend.exception.ServiceClientException;
+import com.meli.middleend.interceptor.LoggingInterceptor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

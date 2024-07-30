@@ -3,6 +3,7 @@ package com.meli.middleend.filters;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.meli.middleend.dto.LogElementDto;
+import com.meli.middleend.dto.enums.TipoLogEnum;
 import com.meli.middleend.service.LoggingService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -38,6 +39,7 @@ public class LoggingFilter implements Filter {
         ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(httpRequest);
         ContentCachingResponseWrapper wrappedResponse = new ContentCachingResponseWrapper((HttpServletResponse) response);
         LogElementDto logElementDto = new LogElementDto();
+        logElementDto.setTipoLog(TipoLogEnum.LOG_APP);
         logElementDto.setRequestId(UUID.randomUUID().toString());
 
         try{
@@ -46,7 +48,7 @@ public class LoggingFilter implements Filter {
             logElementDto.setHttpVerb(httpRequest.getMethod());
             logElementDto.setEndpoint(httpRequest.getRequestURI());
             String requestJson = new String(wrappedRequest.getContentAsByteArray(), wrappedRequest.getCharacterEncoding());
-            logElementDto.setRequestBody(formatJson(requestJson));
+            logElementDto.setRequestBody(requestJson);
             Iterator headerI = httpRequest.getHeaderNames().asIterator();
             String headerList = "";
             while(headerI.hasNext()){
@@ -78,7 +80,7 @@ public class LoggingFilter implements Filter {
                 headerResponse = headerResponse.concat(headers + " - ");
             }
             logElementDto.setResponseHeaders(headerResponse);
-            logElementDto.setResponseBody(formatJson(responseBody));
+            logElementDto.setResponseBody(responseBody);
 
 
         }catch (Exception e){
@@ -91,15 +93,5 @@ public class LoggingFilter implements Filter {
     }
 
 
-    private String formatJson(String jsonString) {
-        ObjectMapper mapper = new ObjectMapper();
-        Object jsonResponse;
-        try {
-            jsonResponse = mapper.readValue(jsonString, Object.class);
-            ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter();
-            return writer.writeValueAsString(jsonResponse);
-        } catch (Exception e) {
-            return jsonString;
-        }
-    }
+
 }

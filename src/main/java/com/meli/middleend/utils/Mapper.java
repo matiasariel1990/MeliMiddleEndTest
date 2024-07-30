@@ -7,11 +7,14 @@ import com.meli.middleend.dto.QueryDto;
 import com.meli.middleend.dto.api.client.SearByQueryDto;
 import com.meli.middleend.dto.api.client.response.ItemByIdResponse;
 import com.meli.middleend.dto.api.client.response.ItemResultSearch;
-import com.meli.middleend.dto.response.ItemResponse;
 
 import java.math.BigDecimal;
 
+import static com.meli.middleend.utils.StringConstants.PICTURE_NO_AVAILABLE;
+
 public class Mapper {
+
+
 
     public static SearByQueryDto mapToSearByQueryDto(QueryDto queryDto){
         SearByQueryDto searByQueryDto = new SearByQueryDto();
@@ -46,14 +49,19 @@ public class Mapper {
                 .build();
     }
 
-    public static ItemDeteail mapToItemResponse(ItemByIdResponse itemByIdResponse) {
+    public static ItemDeteail mapToItemDetail(ItemByIdResponse itemByIdResponse) {
         ItemDeteail itemDeteail = new ItemDeteail();
         itemDeteail.setId(itemByIdResponse.getId());
         itemDeteail.setTitle(itemByIdResponse.getTitle());
         itemDeteail.setPrice(mapToPrice(itemByIdResponse.getPrice(), itemByIdResponse.getCurrency_id()));
         itemDeteail.setCondition(itemByIdResponse.getCondition());
         itemDeteail.setSold_quantity(itemByIdResponse.getInitial_quantity());
-        itemDeteail.setPicture(itemByIdResponse.getPictures().get(0).getSecure_url());
+        if(itemByIdResponse.getPictures() != null && !itemByIdResponse.getPictures().isEmpty()){
+            itemDeteail.setPicture(itemByIdResponse.getPictures().get(0).getSecure_url());
+        }else{
+            itemDeteail.setPicture(StringConstants.PICTURE_NO_AVAILABLE);
+        }
+
         return itemDeteail;
     }
 }
