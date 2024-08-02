@@ -1,5 +1,9 @@
 package com.meli.middleend.client;
 
+import com.meli.middleend.client.impl.ApiMLClientImpl;
+import com.meli.middleend.client.impl.ControlHealthImpl;
+import com.meli.middleend.client.support.CheckHealth;
+import com.meli.middleend.dto.ApiCheckResult;
 import com.meli.middleend.dto.api.client.SearByQueryDto;
 import com.meli.middleend.dto.api.client.response.ItemByIdResponse;
 import com.meli.middleend.dto.api.client.response.ItemDescription;
@@ -8,7 +12,9 @@ import com.meli.middleend.dto.enums.SortsEnum;
 import com.meli.middleend.exception.ServiceClientException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,12 +27,13 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class ApiMLClientImplTest {
@@ -59,6 +66,7 @@ public class ApiMLClientImplTest {
             return new RestTemplate();
         }
 
+
     }
 
     ApiMLClientImpl apiMLClientImpl;
@@ -66,16 +74,21 @@ public class ApiMLClientImplTest {
     @Autowired
     RestTemplate restTemplate;
 
+    @Mock
+    CheckHealth checkHealth;
+
     private MockRestServiceServer mockServer;
 
     @BeforeEach
     public void setUp() {
         mockServer = MockRestServiceServer.createServer(restTemplate);
-        apiMLClientImpl = new ApiMLClientImpl(restTemplate);
+        apiMLClientImpl = new ApiMLClientImpl(restTemplate, checkHealth);
         apiMLClientImpl.setSearchPath(SEARCH_PATH_MOCK);
         apiMLClientImpl.setUriBase(URI_MOCK);
         apiMLClientImpl.setGetItemDescriptionPath(DESCRIPTION_PATH_MOCK);
         apiMLClientImpl.setGetItemByIdPath(ID_PATH_MOCK);
+        doNothing().when(checkHealth).addOkRecord(any());
+        doNothing().when(checkHealth).addErrorRecord(any());
     }
 
     @Test

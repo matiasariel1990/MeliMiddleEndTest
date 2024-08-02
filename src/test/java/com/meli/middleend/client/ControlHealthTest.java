@@ -44,7 +44,7 @@ public class ControlHealthTest {
         }
         assertDoesNotThrow(()-> controlHealth.addErrorRecord(ApiCheckResult.ApiCheckBadResultBuild("404")));
         assertDoesNotThrow(()-> controlHealth.addErrorRecord(ApiCheckResult.ApiCheckBadResultBuild("404")));
-        assertDoesNotThrow(()-> controlHealth.addErrorRecord(ApiCheckResult.ApiCheckBadResultBuild("404")));
+        assertDoesNotThrow(()-> controlHealth.addErrorRecord(ApiCheckResult.ApiCheckNotAvailableResultBuild()));
         assertDoesNotThrow(()-> controlHealth.addErrorRecord(ApiCheckResult.ApiCheckBadResultBuild("404")));
         assertThrows(ApiChangeStateException.class, ()-> controlHealth.addErrorRecord(ApiCheckResult.ApiCheckBadResultBuild("404")));
     }
