@@ -1,0 +1,3 @@
+//Tokens
+spring.security.userclient.token=${auth.token.client}
+spring.security.usermock.token=${auth.token.clientmock}

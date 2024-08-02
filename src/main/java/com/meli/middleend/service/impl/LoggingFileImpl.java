@@ -6,6 +6,7 @@ import com.meli.middleend.filters.LoggingFilter;
 import com.meli.middleend.interceptor.LoggingInterceptor;
 import com.meli.middleend.service.LoggingService;
 import com.meli.middleend.utils.JsonFormatter;
+import lombok.Setter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,13 @@ import org.springframework.stereotype.Service;
 import java.text.MessageFormat;
 
 @Service
+@Setter
 public class LoggingFileImpl implements LoggingService {
 
-    private static final Logger loggerApp = LogManager.getLogger(LoggingFilter.class);
-    private static final Logger loggerBack = LogManager.getLogger(LoggingInterceptor.class);
+    private Logger loggerApp = LogManager.getLogger(LoggingFilter.class);
+    private Logger loggerBack = LogManager.getLogger(LoggingInterceptor.class);
+
+
     @Override
     public void logElement(LogElementDto logDto) {
 
