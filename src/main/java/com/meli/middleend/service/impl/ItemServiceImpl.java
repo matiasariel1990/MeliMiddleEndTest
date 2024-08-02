@@ -28,6 +28,7 @@ public class ItemServiceImpl implements ItemService {
     private static final String NO_AVAILABLE_DATA = "Data not available.";
 
     @Autowired
+    @Qualifier("StateApiHealth")
     ApiMLClient apiMLClient;
 
     @Override

@@ -16,4 +16,9 @@ public class ServiceClientException extends RuntimeException{
         this.status = responseApiError.getStatus();
     }
 
+    public ServiceClientException(String message) {
+        this.message = message;
+        this.status = 500;
+    }
+
 }

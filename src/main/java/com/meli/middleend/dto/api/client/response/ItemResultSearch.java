@@ -1,12 +1,15 @@
 package com.meli.middleend.dto.api.client.response;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
+@NoArgsConstructor
+
 public class ItemResultSearch {
     private String id;
     private String title;
