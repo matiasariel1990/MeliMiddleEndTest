@@ -13,6 +13,7 @@ import com.meli.middleend.dto.response.ItemResponse;
 import com.meli.middleend.dto.response.PageItemResponse;
 import com.meli.middleend.service.ItemService;
 import com.meli.middleend.utils.Mapper;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -20,12 +21,13 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.List;
 
+import static com.meli.middleend.utils.StringConstants.NO_AVAILABLE_DATA;
+
 @Service
 @Qualifier("ItemServiceImpl")
+@Setter
 public class ItemServiceImpl implements ItemService {
 
-    private static final String NO_DESCRIPTION = "No se pudo obtener la descripcion.";
-    private static final String NO_AVAILABLE_DATA = "Data not available.";
 
     @Autowired
     @Qualifier("StateApiHealth")
@@ -39,7 +41,7 @@ public class ItemServiceImpl implements ItemService {
             ItemDescription itemDescription = apiMLClient.getItemDescription(id);
             itemDeteail.setDescription(itemDescription.getPlain_text());
         }catch (Exception e){
-            itemDeteail.setDescription(NO_DESCRIPTION);
+            itemDeteail.setDescription(NO_AVAILABLE_DATA);
         }
         Author author = Author.builder()
                 .name(itemByIdResponse.getSeller_id())
