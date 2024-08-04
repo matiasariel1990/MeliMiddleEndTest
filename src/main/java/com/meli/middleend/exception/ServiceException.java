@@ -1,6 +1,8 @@
 package com.meli.middleend.exception;
 
+import lombok.Getter;
 
+@Getter
 public class ServiceException extends RuntimeException{
 
     String code;
@@ -10,4 +12,5 @@ public class ServiceException extends RuntimeException{
         this.code = "Generic";
         this.message = message;
     }
+
 }
