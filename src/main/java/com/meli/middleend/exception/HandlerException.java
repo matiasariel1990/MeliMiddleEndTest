@@ -7,18 +7,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.client.ResourceAccessException;
 
+import static com.meli.middleend.utils.StringConstants.*;
+
+
 @ControllerAdvice
 public class HandlerException {
-
-    private static final String ERROR_VALIDACION = "ERR_VAL";
-    private static final String ERROR_SERV = "ERR_SERV";
-    private static final String ERROR_GENERICO = "An error has occurred.";
-    private static final String GENERIC_CODE = "GENERIC_ERROR";
-    private static final String ERROR_CLIENT = "RESOURSE_NOT_AVAILABLE";
-    private static final String ERROR_CLIENT_MESSAGE = "The resource is unavailable.";
-    private static final String CLIENT_RESOURSE_NOT_AVAIABLE_MESSAGE = "The resource is temporarily unavailable.";
-    private static final String CLIENT_CODE_RESOURSE_NOT_AVAIABLE = "ERR_CON_CLI";
-    private static final String CLIENT_NOT_AVAIABLE_CODE = "ERR_WAIT_CLIENT";
 
     @ExceptionHandler(value
             =  AuthException.class )

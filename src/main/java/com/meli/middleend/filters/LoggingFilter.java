@@ -38,50 +38,19 @@ public class LoggingFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(httpRequest);
         ContentCachingResponseWrapper wrappedResponse = new ContentCachingResponseWrapper((HttpServletResponse) response);
+
         LogElementDto logElementDto = new LogElementDto();
         logElementDto.setTipoLog(TipoLogEnum.LOG_APP);
         logElementDto.setRequestId(UUID.randomUUID().toString());
 
         try{
-            //Extract request info
-            logElementDto.setFechaHoraRequest(Timestamp.from(Instant.now()));
-            logElementDto.setHttpVerb(httpRequest.getMethod());
-            logElementDto.setEndpoint(httpRequest.getRequestURI());
-            String requestJson = new String(wrappedRequest.getContentAsByteArray(), wrappedRequest.getCharacterEncoding());
-            logElementDto.setRequestBody(requestJson);
-            Iterator headerI = httpRequest.getHeaderNames().asIterator();
-            String headerList = "";
-            while(headerI.hasNext()){
-                String headerName = headerI.next().toString();
-                String headerValue = httpRequest.getHeader(headerName);
-                headerList = headerList.concat(headerName+": '"+ headerValue +"' - ");
-            }
-            logElementDto.setRequestHeaders(headerList);
+            LoggingFilterSupport.extractRequestInfoLog(logElementDto, wrappedRequest);
         }catch (Exception e){
 
         }
-
-
         chain.doFilter(request, wrappedResponse);
-
-
         try{
-            String responseBody = new String(wrappedResponse.getContentAsByteArray(), wrappedResponse.getCharacterEncoding());
-
-            logElementDto.setResultCode(String.valueOf(wrappedResponse.getStatus()));
-            logElementDto.setFechaHoraResponse(Timestamp.from(Instant.now()));
-            //Extract response headers
-            List<String> headersResponseList =
-            wrappedResponse.getHeaderNames().stream().map(
-                    header -> header.concat(": " + Objects.requireNonNull(wrappedResponse.getHeader(header)))
-            ).toList();
-            String headerResponse = "";
-            for(String headers : headersResponseList){
-                headerResponse = headerResponse.concat(headers + " - ");
-            }
-            logElementDto.setResponseHeaders(headerResponse);
-            logElementDto.setResponseBody(responseBody);
-
+            LoggingFilterSupport.extractResponseInfoLog(logElementDto, wrappedResponse);
 
         }catch (Exception e){
 
