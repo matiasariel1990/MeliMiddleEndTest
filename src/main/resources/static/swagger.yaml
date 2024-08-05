@@ -1,0 +1,175 @@
+openapi: 3.0.0
+
+info:
+  title: Mercado Libre API
+  description: API para buscar productos en Mercado Libre y obtener información de un ítem específico.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /item/search/{site}:
+    get:
+      summary: Busca productos en Mercado Libre
+      description: Realiza una búsqueda de productos en Mercado Libre.
+      parameters:
+        - name: site
+          in: path
+          description: Código del sitio (MLA, MLB, MLM)
+          required: true
+          schema:
+            type: string
+            enum:
+              - MLA
+              - MLB
+              - MLM
+        - name: query
+          in: query
+          description: Término de búsqueda
+          required: true
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Orden de los resultados por precio
+          schema:
+            type: string
+            enum:
+              - price_asc
+              - price_desc
+        - name: limit
+          in: query
+          description: Número máximo de resultados
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: Desplazamiento de los resultados
+          schema:
+            type: integer
+        - name: x-auth-token
+          in: header
+          description: Token de autenticación
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  paging:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                      offset:
+                        type: integer
+                      limit:
+                        type: integer
+                  categories:
+                    type: array
+                    items:
+                      type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
+                        price:
+                          type: object
+                          properties:
+                            currency:
+                              type: string
+                            amount:
+                              type: number
+                            decimals:
+                              type: number
+                        picture:
+                          type: string
+                        condition:
+                          type: string
+                        free_shipping:
+                          type: boolean
+
+        '400':
+          description: Bad request
+        '401':
+          description: Token de autenticación inválido
+        '500':
+          description: Internal error
+        '503':
+          description: Service unavailable
+
+  /item/{id}:
+    get:
+      summary: Obtiene la información de un ítem
+      description: Obtiene información detallada de un ítem en Mercado Libre.
+      parameters:
+        - name: id
+          in: path
+          description: Identificador del ítem
+          required: true
+          schema:
+            type: string
+        - name: x-auth-token
+          in: header
+          description: Token de autenticación
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  author:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      lastname:
+                        type: string
+                  item:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      title:
+                        type: string
+                      price:
+                        type: object
+                        properties:
+                          currency:
+                            type: string
+                          amount:
+                            type: number
+                          decimals:
+                            type: number
+                      picture:
+                        type: string
+                      condition:
+                        type: string
+                      free_shipping:
+                        type: boolean
+                      sold_quantity:
+                        type: integer
+                      description:
+                        type: string
+        '400':
+          description: Bad request
+        '401':
+          description: Token de autenticación inválido
+        '500':
+          description: Internal error
+        '503':
+          description: Service unavailable

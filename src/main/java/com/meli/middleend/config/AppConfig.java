@@ -1,6 +1,9 @@
 package com.meli.middleend.config;
 
 import com.meli.middleend.interceptor.LoggingInterceptor;
+import org.springdoc.core.configuration.SpringDocConfiguration;
+import org.springdoc.core.properties.SpringDocConfigProperties;
+import org.springdoc.core.providers.ObjectMapperProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -27,7 +30,20 @@ public class AppConfig {
         return restTemplateBuilder.interceptors(loggingInterceptor).build();
     }
 
+    @Bean
+    SpringDocConfiguration springDocConfiguration() {
+        return new SpringDocConfiguration();
+    }
 
+    @Bean
+    public SpringDocConfigProperties springDocConfigProperties() {
+        return new SpringDocConfigProperties();
+    }
+
+    @Bean
+    public ObjectMapperProvider objectMapperProvider() {
+        return new ObjectMapperProvider(new SpringDocConfigProperties())  ;
+    }
 
 
 

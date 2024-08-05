@@ -13,9 +13,14 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.intercept.AuthorizationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
+import static com.meli.middleend.utils.StringConstants.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 
@@ -36,6 +41,16 @@ public class SecurityConfig {
         this.loggingFilter = new LoggingFilter(new LoggingFileImpl());
     }
 
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -47,16 +62,23 @@ public class SecurityConfig {
                 User.withUsername(UserEnum.USER_MOCK.getUserName()).password("").authorities(UserEnum.USER_MOCK.getRole()).build());
         AuthFilter authFilter =  new AuthFilter(tokenStore);
 
-        http.csrf(AbstractHttpConfigurer::disable)
+        http.csrf(AbstractHttpConfigurer::disable).cors((cors) -> cors
+                        .configurationSource(corsConfigurationSource())
+                )
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
-                        authorizationManagerRequestMatcherRegistry.anyRequest()
-                                .authenticated())
+                        authorizationManagerRequestMatcherRegistry
+                                .requestMatchers(PATH_SWAGGER, PATH_SWAGGER_YAML, PATH_API_DOCS, PATH_API_YAML)
+                                .permitAll()
+                                .requestMatchers(ITEMPATH).authenticated())
                 .sessionManagement(httpSecuritySessionManagementConfigurer ->
                         httpSecuritySessionManagementConfigurer.sessionCreationPolicy(STATELESS))
                 .addFilterBefore(authFilter, AuthorizationFilter.class)
-                .addFilterAfter(loggingFilter, AuthFilter.class);                ;
+                .addFilterAfter(loggingFilter, AuthFilter.class);
 
         return http.build();
+
+
+
     }
 
 

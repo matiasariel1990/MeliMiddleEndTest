@@ -38,7 +38,7 @@ public class AuthFilterTest {
     @Test
     public void noAuthTokenTest() throws ServletException, IOException {
         when(request.getHeader("x-auth-token")).thenReturn(null);
-
+        when(request.getRequestURI()).thenReturn("uri/");
         authFilter.doFilter(request, response, chain);
 
         verify(response).sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
@@ -49,6 +49,7 @@ public class AuthFilterTest {
     public void invalidTokenTest() throws ServletException, IOException {
         String invalidToken = "invalidToken";
         when(request.getHeader("x-auth-token")).thenReturn(invalidToken);
+        when(request.getRequestURI()).thenReturn("uri/");
 
         authFilter.doFilter(request, response, chain);
 
@@ -60,6 +61,7 @@ public class AuthFilterTest {
     public void validTokenTest() throws ServletException, IOException {
         String validToken = "validToken";
         when(request.getHeader("x-auth-token")).thenReturn(validToken);
+        when(request.getRequestURI()).thenReturn("uri/");
 
         UserDetails userDetails = User.withUsername("USERTEST").password("").roles("USERTEST").build();
         tokenStore.put(validToken, userDetails);

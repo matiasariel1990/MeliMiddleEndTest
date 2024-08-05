@@ -21,6 +21,9 @@ import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.meli.middleend.utils.StringConstants.DOC_START_PATH;
+import static com.meli.middleend.utils.StringConstants.SWAGGER_START_PATH;
+
 public class LoggingFilter implements Filter {
 
 
@@ -36,6 +39,12 @@ public class LoggingFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
+
+        if (isFromSwagger(httpRequest.getRequestURI())) {
+            chain.doFilter(request, response);
+            return;
+        }
+
         ContentCachingRequestWrapper wrappedRequest = new ContentCachingRequestWrapper(httpRequest);
         ContentCachingResponseWrapper wrappedResponse = new ContentCachingResponseWrapper((HttpServletResponse) response);
 
@@ -59,6 +68,11 @@ public class LoggingFilter implements Filter {
 
         loggingService.logElement(logElementDto);
 
+    }
+
+    private boolean isFromSwagger(String requestURI) {
+        return  requestURI.startsWith(SWAGGER_START_PATH) ||
+                requestURI.startsWith(DOC_START_PATH);
     }
 
 
