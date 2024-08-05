@@ -2,8 +2,9 @@
 services:
   api-rest-meli:
     build:
+      context: .
       dockerfile: Dockerfile
-    container_name: api-rest-app
+    container_name: api-rest-meli
     ports:
       - "8080:8080"
     environment:
