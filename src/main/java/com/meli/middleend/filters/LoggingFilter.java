@@ -21,6 +21,7 @@ import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.meli.middleend.filters.FIlterSupport.isFromSwagger;
 import static com.meli.middleend.utils.StringConstants.DOC_START_PATH;
 import static com.meli.middleend.utils.StringConstants.SWAGGER_START_PATH;
 
@@ -70,10 +71,6 @@ public class LoggingFilter implements Filter {
 
     }
 
-    private boolean isFromSwagger(String requestURI) {
-        return  requestURI.startsWith(SWAGGER_START_PATH) ||
-                requestURI.startsWith(DOC_START_PATH);
-    }
 
 
 

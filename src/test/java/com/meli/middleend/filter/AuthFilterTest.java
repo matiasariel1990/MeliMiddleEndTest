@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.io.IOException;
 import java.util.HashMap;
 
+import static com.meli.middleend.utils.StringConstants.AUTHTOKEN_HEADER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.util.AssertionErrors.assertNotNull;
@@ -37,7 +38,7 @@ public class AuthFilterTest {
 
     @Test
     public void noAuthTokenTest() throws ServletException, IOException {
-        when(request.getHeader("x-auth-token")).thenReturn(null);
+        when(request.getHeader(AUTHTOKEN_HEADER)).thenReturn(null);
         when(request.getRequestURI()).thenReturn("uri/");
         authFilter.doFilter(request, response, chain);
 
@@ -48,7 +49,7 @@ public class AuthFilterTest {
     @Test
     public void invalidTokenTest() throws ServletException, IOException {
         String invalidToken = "invalidToken";
-        when(request.getHeader("x-auth-token")).thenReturn(invalidToken);
+        when(request.getHeader(AUTHTOKEN_HEADER)).thenReturn(invalidToken);
         when(request.getRequestURI()).thenReturn("uri/");
 
         authFilter.doFilter(request, response, chain);
@@ -60,7 +61,7 @@ public class AuthFilterTest {
     @Test
     public void validTokenTest() throws ServletException, IOException {
         String validToken = "validToken";
-        when(request.getHeader("x-auth-token")).thenReturn(validToken);
+        when(request.getHeader(AUTHTOKEN_HEADER)).thenReturn(validToken);
         when(request.getRequestURI()).thenReturn("uri/");
 
         UserDetails userDetails = User.withUsername("USERTEST").password("").roles("USERTEST").build();

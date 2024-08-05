@@ -19,12 +19,11 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.HashMap;
 
-import static com.meli.middleend.utils.StringConstants.DOC_START_PATH;
-import static com.meli.middleend.utils.StringConstants.SWAGGER_START_PATH;
+import static com.meli.middleend.filters.FIlterSupport.isFromSwagger;
+import static com.meli.middleend.utils.StringConstants.*;
 
 public class AuthFilter implements Filter {
 
-    private static final String AUTHTOKEN = "X-Auth-Token";
 
     HashMap<String, UserDetails> tokenStore;
 
@@ -36,7 +35,7 @@ public class AuthFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-        String authToken = httpRequest.getHeader(AUTHTOKEN);
+        String authToken = httpRequest.getHeader(AUTHTOKEN_HEADER);
 
         if (isFromSwagger(httpRequest.getRequestURI())) {
             chain.doFilter(request, response);
@@ -64,9 +63,6 @@ public class AuthFilter implements Filter {
         chain.doFilter(request, response);
     }
 
-    private boolean isFromSwagger(String requestURI) {
-        return  requestURI.startsWith(SWAGGER_START_PATH) ||
-                requestURI.startsWith(DOC_START_PATH);
-    }
+
 
 }

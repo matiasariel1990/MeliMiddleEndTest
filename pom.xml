@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.meli</groupId>
-	<artifactId>Middleendmf</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Middleend - Matias Figueroa</name>
+	<artifactId>Middleend_Matias_Figueroa</artifactId>
+	<version>1.0.0</version>
+	<name>Middleend_Matias_Figueroa</name>
 	<description>Test Middleend Meli</description>
 	<url/>
 	<licenses>

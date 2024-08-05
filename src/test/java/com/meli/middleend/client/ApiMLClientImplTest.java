@@ -49,7 +49,7 @@ public class ApiMLClientImplTest {
     private static final String SEARCH_PATH_MOCK ="sites/{site}/search";
     private static final String DESCRIPTION_PATH_MOCK = "item/{id}/description";
     private static final String ID_PATH_MOCK = "item/{id}";
-    private static final String TITLE_MOCK = "El Lobo Que Queria Cambiar De Color, De Lallemand, Orianne. Editorial Los Editores De Auzou, Tapa Dura En Español, 2019";
+    private static final String TITLE_MOCK = "El Lobo Que Queria Cambiar De Color, De Lallemand, Orianne.";
     private static final int TOTAL_SEARCH_OK = 455;
     private static final int OFFSET_SEARCH_OK = 0;
     private static final int LIMIT_SEARCH_OK = 50;

@@ -30,10 +30,6 @@ public class AppConfig {
         return restTemplateBuilder.interceptors(loggingInterceptor).build();
     }
 
-    @Bean
-    SpringDocConfiguration springDocConfiguration() {
-        return new SpringDocConfiguration();
-    }
 
     @Bean
     public SpringDocConfigProperties springDocConfigProperties() {
