@@ -1,7 +1,9 @@
 package com.meli.middleend.service;
 
+import com.meli.middleend.dto.QueryDto;
 import com.meli.middleend.dto.enums.SiteEnum;
 import com.meli.middleend.dto.enums.SortsEnum;
+import com.meli.middleend.dto.request.GetItemQueryRequest;
 import com.meli.middleend.exception.ValidationException;
 import com.meli.middleend.service.impl.ValidatorServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -51,9 +53,9 @@ public class ValidatorServiceImplTest {
     @Test
     public void ifLimitIsHigherThanLimitMaxExpectAnExceptionTest(){
         //Max limit 10 en application.properties
-        assertThrows(ValidationException.class,() -> validatorService.validarLimit(11));
-        assertThrows(ValidationException.class,() -> validatorService.validarLimit(15));
-        assertThrows(ValidationException.class,() -> validatorService.validarLimit(12));
+        assertThrows(ValidationException.class,() -> validatorService.validarLimit(25));
+        assertThrows(ValidationException.class,() -> validatorService.validarLimit(55));
+        assertThrows(ValidationException.class,() -> validatorService.validarLimit(125));
     }
 
     @Test
@@ -137,5 +139,45 @@ public class ValidatorServiceImplTest {
         assertThrows(ValidationException.class,() -> validatorService.validarId("un id "));
         assertThrows(ValidationException.class,() -> validatorService.validarId("asdfsadfds "));
         assertThrows(ValidationException.class,() -> validatorService.validarId(" dfadf"));
+    }
+
+    @Test
+    public void whenQueryIsInvalidExpectedAnExcepitionTest(){
+        GetItemQueryRequest getItemQueryRequest = createMockGetItemQuery();
+        getItemQueryRequest.setQuery("Select * from ");
+        assertThrows(ValidationException.class,() -> validatorService.validarQueryParams(getItemQueryRequest));
+    }
+
+    @Test
+    public void whenSITEIsInvalidExpectedAnExcepitionTest(){
+        GetItemQueryRequest getItemQueryRequest = createMockGetItemQuery();
+        getItemQueryRequest.setSite("MLK");
+        assertThrows(ValidationException.class,() -> validatorService.validarQueryParams(getItemQueryRequest));
+    }
+
+    @Test
+    public void whenOffsetIsInvalidExpectedAnExcepitionTest(){
+        GetItemQueryRequest getItemQueryRequest = createMockGetItemQuery();
+        getItemQueryRequest.setOffset(-1);
+        assertThrows(ValidationException.class,() -> validatorService.validarQueryParams(getItemQueryRequest));
+    }
+
+    @Test
+    public void iffAllIsOKTest(){
+        GetItemQueryRequest getItemQueryRequest = createMockGetItemQuery();
+        QueryDto queryDto = validatorService.validarQueryParams(getItemQueryRequest);
+
+        assertEquals(getItemQueryRequest.getSite(), queryDto.getSiteEnum().getSiteCode());
+        assertEquals(getItemQueryRequest.getOffset(), queryDto.getOffset());
+        assertEquals(getItemQueryRequest.getSortBy(), queryDto.getSortEnum().getId());
+        assertEquals(getItemQueryRequest.getQuery(), queryDto.getQuery());
+    }
+
+    private GetItemQueryRequest createMockGetItemQuery(){
+        GetItemQueryRequest getItemQueryRequest = new GetItemQueryRequest();
+        getItemQueryRequest.setSite("MLA");
+        getItemQueryRequest.setQuery("query");
+        getItemQueryRequest.setSortBy(SortsEnum.PRICE_ASC.getId());
+        return getItemQueryRequest;
     }
 }

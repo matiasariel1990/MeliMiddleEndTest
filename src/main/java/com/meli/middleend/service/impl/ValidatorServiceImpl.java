@@ -1,11 +1,14 @@
 package com.meli.middleend.service.impl;
 
+import com.meli.middleend.dto.QueryDto;
 import com.meli.middleend.dto.enums.SiteEnum;
 import com.meli.middleend.dto.enums.SortsEnum;
+import com.meli.middleend.dto.request.GetItemQueryRequest;
 import com.meli.middleend.exception.ValidationException;
 import com.meli.middleend.service.ValidatorService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class ValidatorServiceImpl implements ValidatorService {
@@ -21,6 +24,7 @@ public class ValidatorServiceImpl implements ValidatorService {
     private static final String QUERY_MAX_SIZE_ERROR = "Query size too long." ;
     private static final String QUERY_REGEX_ERROR = "Invalid param";
     private static final String QUERY_NULL = "Query value can't be null";
+    private static final int DEFAULT_OFFSET = 0;
 
     @Value("${request.search.param.max.limit}")
     private int maxLimit;
@@ -34,6 +38,21 @@ public class ValidatorServiceImpl implements ValidatorService {
     @Value("${request.id.var.path.max.id}")
     private int maxIdSize;
 
+
+    @Override
+    public QueryDto validarQueryParams(GetItemQueryRequest getItemQueryRequest) {
+        QueryDto queryDto = QueryDto.builder().build();
+        queryDto.setSiteEnum(validarSite(getItemQueryRequest.getSite()));
+        queryDto.setQuery(validarQuery(getItemQueryRequest.getQuery()));
+        if(getItemQueryRequest.getOffset() != DEFAULT_OFFSET){
+            queryDto.setOffset(validarOffset(getItemQueryRequest.getOffset()));
+        }
+        queryDto.setLimit(validarLimit(getItemQueryRequest.getLimit()));
+        if(getItemQueryRequest.getSortBy() != null){
+            queryDto.setSortEnum(validarSort(getItemQueryRequest.getSortBy()));
+        }
+        return queryDto;
+    }
 
     @Override
     public SiteEnum validarSite(String site) {
@@ -108,4 +127,7 @@ public class ValidatorServiceImpl implements ValidatorService {
         }
         return id;
     }
+
+
+
 }
