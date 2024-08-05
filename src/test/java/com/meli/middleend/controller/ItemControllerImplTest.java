@@ -4,8 +4,11 @@ package com.meli.middleend.controller;
 import com.google.gson.Gson;
 import com.meli.middleend.controller.impl.ItemControllerImpl;
 import com.meli.middleend.dto.ItemDeteail;
+import com.meli.middleend.dto.QueryDto;
+import com.meli.middleend.dto.api.client.SearByQueryDto;
 import com.meli.middleend.dto.enums.SiteEnum;
 import com.meli.middleend.dto.enums.SortsEnum;
+import com.meli.middleend.dto.request.GetItemQueryRequest;
 import com.meli.middleend.dto.response.ItemResponse;
 import com.meli.middleend.dto.response.PageItemResponse;
 import com.meli.middleend.exception.ServiceException;
@@ -14,11 +17,13 @@ import com.meli.middleend.factory.FactoryItem;
 import com.meli.middleend.service.ItemService;
 import com.meli.middleend.service.ValidatorService;
 import com.meli.middleend.utils.MockConstants;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -50,6 +55,19 @@ public class ItemControllerImplTest {
 
     @Mock
     ValidatorService validatorService;
+
+    GetItemQueryRequest getItemQueryRequest;
+
+    @BeforeEach
+    public void setUp(){
+        getItemQueryRequest = new GetItemQueryRequest();
+        getItemQueryRequest.setSite("MLA");
+        getItemQueryRequest.setQuery(QUERY_TEST);
+        getItemQueryRequest.setLimit(0);
+        getItemQueryRequest.setOffset(10);
+
+        itemController.setValidatorService(validatorService);
+    }
 
     @Test
     public void whenItemServiceResponsesOkExpected200AndEntityItemResponseTest(){
@@ -89,51 +107,28 @@ public class ItemControllerImplTest {
     }
 
     @Test
-    public void whenSiteIsInvalidExpectedAnExceptionTest(){
-        when(validatorService.validarSite(any())).thenThrow(new ValidationException(""));
-        assertThrows(ValidationException.class, () ->itemController.getItemBySite(
-                "invalidSite", QUERY_TEST, 0, 10, SortsEnum.PRICE_ASC.getId()
-        ));
+    public void whenValidateHeadersThrownsAnExceptionExpectedAnExceptionTest(){
+        when(validatorService.validarQueryParams(any())).thenThrow(new ValidationException(""));
+        assertThrows(ValidationException.class, () ->itemController.getItemBySite(getItemQueryRequest));
     }
 
-    @Test
-    public void whenOffsetIsInvalidExpectedAnExceptionTest(){
-        when(validatorService.validarSite(SiteEnum.MLA.getSiteCode())).thenReturn(SiteEnum.MLA);
-        when(validatorService.validarQuery(any())).thenReturn(QUERY_TEST);
-        when(validatorService.validarOffset(-1)).thenThrow(new ValidationException(""));
-        assertThrows(ValidationException.class, () ->itemController.getItemBySite(
-                SiteEnum.MLA.getSiteCode(), QUERY_TEST, -1, 10, SortsEnum.PRICE_ASC.getId()
-        ));
-    }
-
-    @Test
-    public void whenQueryIsInvalidExpectedAnExceptionTest(){
-        when(validatorService.validarSite(SiteEnum.MLA.getSiteCode())).thenReturn(SiteEnum.MLA);
-        when(validatorService.validarQuery(any())).thenThrow(new ValidationException(""));
-        assertThrows(ValidationException.class, () ->itemController.getItemBySite(
-                SiteEnum.MLA.getSiteCode(), QUERY_TEST, 0, 10, SortsEnum.PRICE_ASC.getId()
-        ));
-    }
 
     @Test
     public void whenAllParamsOkAndServiceOkExpectAnPageItemResponseTest() throws IOException {
-        mockValidatorOK();
-        when(validatorService.validarSort(SortsEnum.PRICE_ASC.getId())).thenReturn(SortsEnum.PRICE_ASC);
+        getItemQueryRequest.setSite(SiteEnum.MLB.getSiteCode());
+        getItemQueryRequest.setSortBy(SortsEnum.PRICE_ASC.getId());
+        QueryDto queryDto = QueryDto.builder().build();
+        when(validatorService.validarQueryParams(getItemQueryRequest)).thenReturn(queryDto);
 
         String pageItemMockJson = new String(Files.readAllBytes(Paths.get(PAGE_ITEM_RESPONSE_JSON_PATH)));
         Gson gson = new Gson();
         PageItemResponse pageItemResponse = gson.fromJson(pageItemMockJson, PageItemResponse.class);
         when(itemService.getItemsByQuery(any())).thenReturn(pageItemResponse);
-        ResponseEntity<PageItemResponse> response = itemController.getItemBySite(SiteEnum.MLB.getSiteCode(),
-                QUERY_TEST, 0, 10, SortsEnum.PRICE_ASC.getId());
+        ResponseEntity<PageItemResponse> response = itemController.getItemBySite(getItemQueryRequest);
         assertEquals(pageItemResponse, response.getBody());
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
-    private void mockValidatorOK() {
-        when(validatorService.validarSite(SiteEnum.MLB.getSiteCode())).thenReturn(SiteEnum.MLB);
-        when(validatorService.validarQuery(QUERY_TEST)).thenReturn(QUERY_TEST);
-    }
 
 
 
