@@ -1,5 +1,5 @@
 # Mercado Libre Product Search API
-
+[![codecov](https://codecov.io/github/matiasariel1990/MeliMiddleEndTest/graph/badge.svg?token=Z07OKKF5GU)](https://codecov.io/github/matiasariel1990/MeliMiddleEndTest)
 ## Descripción
 
 Esta API permite realizar búsquedas de productos en Mercado Libre, así como obtener detalles específicos de un ítem. Implementa la arquitectura REST y está desarrollada con Spring Boot. La API admite búsquedas en tres sitios (MLA, MLB, MLM) y ofrece funcionalidades como ordenamiento por precio, paginación y filtrado por token de autenticación.
@@ -11,7 +11,6 @@ Esta API permite realizar búsquedas de productos en Mercado Libre, así como ob
 
 [3 - Documentacion](#Documentacion)
 
-[4 - Test](#Test)
 
 
 ## Requisitos
