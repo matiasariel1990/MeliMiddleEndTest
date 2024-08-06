@@ -43,7 +43,7 @@ public class ApiMLClientImplTest {
     private static final String MESSAGE_ERROR_API_400_TEST = "Message: status_400;Error Code: error_fallback_searchbackend;Status: 400;Cause: []";
     private static final String OK_SEARCH_JSON_PATH = "src/test/resources/response_ok.json";
     private static final String ITEM_DESCRIPTION_OK_PATH = "src/test/resources/item_description_ok.json";
-    private static final String ITEM_DETAIL_OK_PATH = "src/test/resources/item_By_id_response_ok.json";
+    private static final String ITEM_DETAIL_OK_PATH = "src/test/resources/item_by_id_response_ok.json";
     private static final String FIRST_ID_MOCK = "MLA831548882";
     private static final String URI_MOCK = "http://www.ml.com.ar/";
     private static final String SEARCH_PATH_MOCK ="sites/{site}/search";
