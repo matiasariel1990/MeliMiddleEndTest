@@ -77,7 +77,7 @@ Pasados los filtros entra a la capa del controlador.
 ![Diagrama de Controller](src/main/resources/docs/controller.png)
 
 ### StrategyService
-La estrategia de resolusion depende del rol con que se consulta.
+La estrategia de resolución depende del rol con que se consulta.
 ![Diagrama de Controller](src/main/resources/docs/ServiceStrategy.png)
 
 ### ItemServiceImpl
