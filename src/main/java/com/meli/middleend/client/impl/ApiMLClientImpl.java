@@ -111,6 +111,7 @@ public class ApiMLClientImpl implements ApiMLClient {
             checkHealth.addOkRecord(ApiCheckResult.ApiCheckResultBuild());
             return responseEntity.getBody();
         }catch (HttpClientErrorException clientErrorException){
+            checkHealth.addErrorRecord(ApiCheckResult.ApiCheckBadResultBuild(clientErrorException.getStatusText()));
             ResponseApiError responseApiError = clientErrorException.getResponseBodyAs(ResponseApiError.class);
             throw new ServiceClientException(responseApiError);
         }catch (ResourceAccessException resourceAccessException){
