@@ -20,10 +20,15 @@ Esta API permite realizar búsquedas de productos en Mercado Libre, así como ob
 - **Docker**: Utilizado para contenerización y despliegue de la aplicación. Asegúrate de tener Docker instalado. Puedes obtenerlo desde [Docker](https://www.docker.com/get-started).
 
 ## Instalación y Ejecución
+
+
 ### Clonar el repositorio:
 
 ```
 git clone https://github.com/matiasariel1990/MeliMiddleEndTest.git
+```
+Ingresamos a al directorio.
+```
 cd MeliMiddleEndTest
 ```
 ### Compilación
@@ -37,8 +42,9 @@ En el archivo application.properties, puedes configurar las variables de la app.
 
 ### Ejecutar la aplicación:
 Esta aplicacion tiene dos variables de entorno principales, se deben setear las mismas para poder ejecutar la app.
+Reemplaza los valores de value1 y value2 por los tokens auth.
 ```
-set auth.token.client=value1 && set auth.token.client=value2 && mvn spring-boot:run
+set "auth.token.client=value1" && set "auth.token.clientmock=value2" && mvn spring-boot:run
 ```
 
 ## Docker
@@ -46,7 +52,7 @@ Asegúrate de tener Docker instalado y en ejecución. Construye la imagen Docker
 ```
 docker-compose build
 ```
-Ejecuta el contenedor
+Ejecuta el contenedor (No te olvides de cambiar las variables de entorno!).
 
 ```
 docker-compose up
