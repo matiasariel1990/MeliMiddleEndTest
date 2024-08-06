@@ -7,7 +7,7 @@ Esta API permite realizar búsquedas de productos en Mercado Libre, así como ob
 
 [1 - Requisitos](#Requisitos)
 
-[2 - Instalación y Ejecución](#Instalación y Ejecución)
+[2 - Instalación y Ejecución](#Instalación-Ejecución)
 
 [3 - Documentacion](#Documentacion)
 
@@ -19,7 +19,7 @@ Esta API permite realizar búsquedas de productos en Mercado Libre, así como ob
 - **Maven 3.8.2**: Necesario para gestionar dependencias y construir el proyecto. Descárgalo desde [Maven](https://maven.apache.org/download.cgi).
 - **Docker**: Utilizado para contenerización y despliegue de la aplicación. Asegúrate de tener Docker instalado. Puedes obtenerlo desde [Docker](https://www.docker.com/get-started).
 
-## Instalación y Ejecución
+## Instalación-Ejecución
 
 
 ### Clonar el repositorio:
@@ -87,7 +87,7 @@ Si entramos con un rol de usuario...
 ### Api Client
 En la capa de cliente, derivamos la respuesta al estado, el estado de la api depende de los ultimos registros.
 Cada vez que recibimos un error del RestClient, verificamos el estado de salud, 
-y de no cumplir con las reglas configuradas, damos de baja el servicio por el tiempo configurado.
+y de no cumplir con las reglas configuradas en aplication.properties, damos de baja el servicio por el tiempo configurado.
 ![Diagrama de Cliente 2](src/main/resources/docs/whenState-ApiClientAndResponseOk.png)
 ![Diagrama de Cliente 1](src/main/resources/docs/whenState-ApiClientAndError.png)
 ![Diagrama de Cliente 3](src/main/resources/docs/whenState-ApiUnavailableState.png)
